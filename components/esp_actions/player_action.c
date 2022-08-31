@@ -65,9 +65,9 @@ esp_err_t player_action_vol_up(void *instance, action_arg_t *arg, action_result_
     int player_volume = 0;
     esp_audio_handle_t handle = (esp_audio_handle_t)instance;
     esp_audio_vol_get(handle, &player_volume);
-    player_volume += 10;
-    if (player_volume > 100) {
-        player_volume = 100;
+    player_volume += 5;
+    if (player_volume > 70) {
+        player_volume = 70;
     }
     esp_audio_vol_set(handle, player_volume);
     ESP_LOGI(TAG, "%s, vol:[%d]", __func__, player_volume);
@@ -79,7 +79,7 @@ esp_err_t player_action_vol_down(void *instance, action_arg_t *arg, action_resul
     int player_volume = 0;
     esp_audio_handle_t handle = (esp_audio_handle_t)instance;
     esp_audio_vol_get(handle, &player_volume);
-    player_volume -= 10;
+    player_volume -= 5;
     if (player_volume < 0) {
         player_volume = 0;
     }

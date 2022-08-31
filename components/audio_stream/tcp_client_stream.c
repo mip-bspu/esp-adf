@@ -88,11 +88,14 @@ static esp_err_t _tcp_open(audio_element_handle_t self)
     }
     ESP_LOGI(TAG, "Host is %s, port is %d\n", tcp->host, tcp->port);
     esp_transport_handle_t t = esp_transport_tcp_init();
+    esp_transport_list_handle_t transport_list = esp_transport_list_init();
+    esp_transport_list_add(transport_list, t, "http");
     AUDIO_NULL_CHECK(TAG, t, return ESP_FAIL);
     tcp->sock = esp_transport_connect(t, tcp->host, tcp->port, CONNECT_TIMEOUT_MS);
     if (tcp->sock < 0) {
         _get_socket_error_code_reason(__func__,  tcp->sock);
         esp_transport_destroy(t);
+        esp_transport_list_destroy(transport_list);
         return ESP_FAIL;
     }
     tcp->is_open = true;

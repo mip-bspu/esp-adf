@@ -2,7 +2,7 @@ menu "Audio HAL"
 
 choice AUDIO_BOARD
     prompt "Audio board"
-    default ESP_LYRAT_V4_3_BOARD
+    default ESP_AI_THINKER_V2_2_BOARD
     help
         Select an audio board to use with the ESP-ADF
 config AUDIO_BOARD_CUSTOM
@@ -27,6 +27,8 @@ config ESP32_S3_BOX_LITE_BOARD
     bool "ESP32-S3-BOX-Lite"
 config ESP32_S3_BOX_BOARD
     bool "ESP32-S3-BOX"
+config ESP_AI_THINKER_V2_2_BOARD
+    bool "ESP32-AiThinker-audio V2.2"
 
 endchoice
 

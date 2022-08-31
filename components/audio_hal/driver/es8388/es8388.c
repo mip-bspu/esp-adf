@@ -75,6 +75,7 @@ static int i2c_init()
     res = get_i2c_pins(I2C_NUM_0, &es_i2c_cfg);
     ES_ASSERT(res, "getting i2c pins error", -1);
     i2c_handle = i2c_bus_create(I2C_NUM_0, &es_i2c_cfg);
+    ESP_LOGI(ES_TAG, "i2c_init");
     return res;
 }
 

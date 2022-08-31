@@ -45,7 +45,7 @@
 
 static const char *TAG = "HTTP_STREAM";
 #define MAX_PLAYLIST_LINE_SIZE (512)
-#define HTTP_STREAM_BUFFER_SIZE (2048)
+#define HTTP_STREAM_BUFFER_SIZE (4096)
 #define HTTP_MAX_CONNECT_TIMES  (5)
 
 #define HLS_PREFER_BITRATE      (200*1024)
@@ -305,7 +305,7 @@ _stream_open_begin:
             .url = uri,
             .event_handler = _http_event_handle,
             .user_data = self,
-            .timeout_ms = 30 * 1000,
+            .timeout_ms = 3 * 1000,
             .buffer_size = HTTP_STREAM_BUFFER_SIZE,
         };
         http->client = esp_http_client_init(&http_cfg);
