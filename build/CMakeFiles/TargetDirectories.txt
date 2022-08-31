@@ -1,2 +1,0 @@
-/home/ni/esp/esp-adf/build/CMakeFiles/rebuild_cache.dir
-/home/ni/esp/esp-adf/build/CMakeFiles/edit_cache.dir
